@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Informasi Stok/Katalog Buku</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <h2>Daftar Stok Buku</h2>
+    <table border="1" cellpadding="8" cellspacing="0" id="stokTable">
+        <thead>
+            <tr>
+                <th>Judul Buku</th>
+                <th>Pengarang</th>
+                <th>Stok</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Isi dinamis via JS -->
+        </tbody>
+    </table>
+
+    <h3>Tambah Stok Buku Baru</h3>
+    <form id="formTambahStok">
+        <input type="text" id="judul" placeholder="Judul Buku" required />
+        <input type="text" id="pengarang" placeholder="Pengarang" required />
+        <input type="number" id="stok" placeholder="Stok" min="1" required />
+        <button type="submit">Tambah</button>
+    </form>
+
+    <script src="js/data.js"></script>
+    <script>
+        const tbody = document.querySelector("#stokTable tbody");
+
+        function renderStok() {
+            tbody.innerHTML = "";
+            dataKatalogBuku.forEach((buku, i) => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${buku.judul}</td>
+                    <td>${buku.pengarang}</td>
+                    <td>${buku.stok}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        document.getElementById('formTambahStok').addEventListener('submit', function(e){
+            e.preventDefault();
+            const judul = document.getElementById('judul').value.trim();
+            const pengarang = document.getElementById('pengarang').value.trim();
+            const stok = parseInt(document.getElementById('stok').value);
+
+            // Tambah data ke array
+            dataKatalogBuku.push({judul, pengarang, stok});
+            renderStok();
+
+            // Reset form
+            e.target.reset();
+        });
+
+        renderStok();
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Tracking Pengiriman</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <h2>Informasi Pengiriman</h2>
+    <form id="trackingForm">
+        <label for="deliveryOrder">Nomor Delivery Order:</label>
+        <input type="text" id="deliveryOrder" required />
+        <button type="submit">Cari</button>
+    </form>
+
+    <div id="trackingResult" style="margin-top:20px;"></div>
+
+    <script src="js/data.js"></script>
+    <script>
+        document.getElementById('trackingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const kode = document.getElementById('deliveryOrder').value.trim();
+            const resultDiv = document.getElementById('trackingResult');
+            const order = deliveryData.find(d => d.deliveryOrder === kode);
+
+            if(!order) {
+                resultDiv.innerHTML = `<p style="color:red;">Nomor Delivery Order tidak ditemukan.</p>`;
+                return;
+            }
+
+            // Progress bar sederhana berdasarkan status
+            let progress = 0;
+            let color = "gray";
+            if(order.statusPengiriman.toLowerCase().includes("sudah sampai")) {
+                progress = 100;
+                color = "green";
+            } else if(order.statusPengiriman.toLowerCase().includes("dalam perjalanan")) {
+                progress = 50;
+                color = "orange";
+            } else {
+                progress = 20;
+                color = "red";
+            }
+
+            resultDiv.innerHTML = `
+                <h3>Nama Pemesan: ${order.namaPemesanan}</h3>
+                <p>Status Pengiriman: ${order.statusPengiriman}</p>
+                <div style="background:#eee; width: 100%; height: 20px; border-radius: 10px; margin-bottom: 10px;">
+                    <div style="background: ${color}; width: ${progress}%; height:100%; border-radius: 10px;"></div>
+                </div>
+                <table border="1" cellpadding="8" cellspacing="0">
+                    <tr><th>Ekspedisi</th><td>${order.detail.ekspedisi}</td></tr>
+                    <tr><th>Tanggal Kirim</th><td>${order.detail.tanggalKirim}</td></tr>
+                    <tr><th>Jenis Paket</th><td>${order.detail.jenisPaket}</td></tr>
+                    <tr><th>Total Pembayaran</th><td>Rp ${order.detail.totalPembayaran.toLocaleString()}</td></tr>
+                </table>
+            `;
+        });
+    </script>
+</body>
+</html>
