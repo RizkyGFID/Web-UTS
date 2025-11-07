@@ -1,4 +1,4 @@
-<img width="1918" height="947" alt="image" src="https://github.com/user-attachments/assets/2a7b97bf-6556-4bb2-b6a6-119ddb494184" /># Pertemuan UTS-Membuat Web Pembelian Buku
+# Pertemuan UTS-Membuat Web Pembelian Buku
 
 Nama : Ahmad Rizky Pramudia Pratama
 NIM : 312410272
@@ -27,3 +27,13 @@ Tapi jika kalian login menggunakan akun admin akan masuk ke dashboard seperti in
 
 <img src="ss/ss6.png" alt="WebBuku" width="400">
 
+Kalian bisa memesan buku ke tab Pemesanan lalu lakukan pemesanan, jika sudah melakukan pemesanan buku
+kalian bisa cek di bagian riwayat transaksi
+
+<img src="ss/ss3.png" alt="WebBuku" width="400">
+
+<img src="ss/ss4.png" alt="WebBuku" width="400">
+
+Tapi jika kalian login sebagai admin, kalian bisa menambahkan stok buku di tab Katalog
+
+<img src="ss/ss5.png" alt="WebBuku" width="400">
