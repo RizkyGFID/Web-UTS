@@ -6,4 +6,4 @@ Kelas : TI.24.A4
 
 Disini saya akan menunjukkan hasil dari pembuatan web penjualan buku
 
-<img src="ss/ss1.jpg" alt="WebBuku" width="400">
+<img src="ss/ss1.png" alt="WebBuku" width="400">
