@@ -1,4 +1,4 @@
-# Pertemuan UTS-Membuat Web Pembelian Buku
+<img width="1918" height="947" alt="image" src="https://github.com/user-attachments/assets/2a7b97bf-6556-4bb2-b6a6-119ddb494184" /># Pertemuan UTS-Membuat Web Pembelian Buku
 
 Nama : Ahmad Rizky Pramudia Pratama
 NIM : 312410272
@@ -18,3 +18,12 @@ Pertama Buka index.html, login dengan salah satu akun di atas.
 Setelah login, akan diarahkan ke dashboard. Navigation menyesuaikan role yang dimaksud (user/admin):
 
 <img src="ss/ss1.png" alt="WebBuku" width="400">
+
+Setelah login, akan masuk ke dashboard seperti ini:
+
+<img src="ss/ss2.png" alt="WebBuku" width="400">
+
+Tapi jika kalian login menggunakan akun admin akan masuk ke dashboard seperti ini:
+
+<img src="ss/ss6.png" alt="WebBuku" width="400">
+
